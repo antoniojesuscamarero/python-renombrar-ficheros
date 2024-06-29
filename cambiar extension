@@ -1,0 +1,13 @@
+ruta_directorio = "D:\\Fondos_Windows\\Sin_formato\\"           
+extension_deseada = ".jpg"
+
+import os
+
+def agregar_extension(ruta, extension):
+    for archivo in os.listdir(ruta):  # Iterar sobre los archivos en la ruta indicada
+        if not archivo.endswith(extension):  # Verificar si el archivo no tiene la extensión deseada
+            old_file = os.path.join(ruta, archivo)  # Crear la ruta completa del archivo actual
+            new_file = os.path.join(ruta, archivo + extension)  # Crear la ruta completa del archivo con la nueva extensión
+            os.rename(old_file, new_file)  # Cambiar el nombre del archivo
+           
+agregar_extension(ruta_directorio, extension_deseada)
